@@ -2,10 +2,11 @@ public class Calculator {
 
 	public static void main(String[] args) {
 
-		String str = "3 + 4 * 2 / ( 1 - 5 ) * 2";
+		String str = "3 + 6 * 5";
 		InfixConverter ic = new InfixConverter(str);
-
-		System.out.println(ic.convert());
+		ic.convert();		
+		
+		System.out.println(ic.getPostfixString());
 
 	}
 }

@@ -12,7 +12,7 @@ public class InfixConverter extends TypeCheck {
 		this.input = input;
 	}
 
-	public String convert() {
+	public void convert() {
 		// Stack<String> stack = new Stack<String>();
 		StringTokenizer st = new StringTokenizer(input, " ");
 
@@ -45,8 +45,6 @@ public class InfixConverter extends TypeCheck {
 		while (opStack.size() != 0) {
 			addToOutputQueue(opStack.pop().getType());
 		}
-
-		return postfixString;
 	}
 
 	private void addToOutputQueue(String token) {
@@ -85,20 +83,6 @@ public class InfixConverter extends TypeCheck {
 				opStack.pop();
 		}
 	}
-
-	/*
-	 * private boolean isOperator(char token) { switch (token) {
-	 * 
-	 * case '/': case '*': case '-': case '+': case '(': case ')': return true;
-	 * 
-	 * default: return false; }
-	 * 
-	 * }
-	 * 
-	 * private boolean isParenthesis(char token) { switch (token) {
-	 * 
-	 * case '(': case ')': return true; default: return false; } }
-	 */
 
 	public String getPostfixString() {
 		return postfixString;
