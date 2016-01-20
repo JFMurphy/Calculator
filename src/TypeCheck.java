@@ -7,17 +7,19 @@ public class TypeCheck {
 		case '*':
 		case '/':
 			return true;
-			
-		default: return false;
+
+		default:
+			return false;
 		}
 	}
-	
+
 	public boolean isParenthesis(char token) {
 		switch (token) {
 		case '(':
 		case ')':
 			return true;
-		default: return false;
+		default:
+			return false;
 		}
 	}
 }

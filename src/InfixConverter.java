@@ -41,11 +41,11 @@ public class InfixConverter extends TypeCheck {
 				addToOutputQueue(token);
 			}
 		}
-		
+
 		while (opStack.size() != 0) {
 			addToOutputQueue(opStack.pop().getType());
 		}
-		
+
 		return postfixString;
 	}
 
@@ -56,7 +56,6 @@ public class InfixConverter extends TypeCheck {
 	private void processOperator(String token) {
 		StackToken operator = new StackToken(token);
 
-		
 		// While there is an operator at the top of the stack.
 		while (opStack.size() > 0 && isOperator(opStack.peek().getType().charAt(0))) {
 
@@ -68,20 +67,20 @@ public class InfixConverter extends TypeCheck {
 				break;
 			}
 		}
-		
+
 		opStack.push(operator);
 	}
-	
+
 	private void processParenthesis(String token) {
 		char temp = token.charAt(0);
-		
+
 		if (temp == '(')
 			opStack.push(new StackToken(token));
 		else {
 			while (!opStack.peek().getType().equals("(")) {
 				addToOutputQueue(opStack.pop().getType());
 			}
-			
+
 			if (opStack.peek().getType().equals("("))
 				opStack.pop();
 		}
