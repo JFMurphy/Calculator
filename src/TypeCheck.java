@@ -22,4 +22,19 @@ public class TypeCheck {
 			return false;
 		}
 	}
+	
+	public boolean isNonNumeric(char c) {
+		switch (c) {
+		case '+':
+		case '-':
+		case '*':
+		case '/':
+		case '(':
+		case ')':
+			return true;
+
+		default:
+			return false;
+		}
+	}
 }

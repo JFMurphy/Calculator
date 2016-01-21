@@ -9,15 +9,18 @@ public class InfixConverter extends TypeCheck {
 	private String postfixString = "";
 
 	public InfixConverter(String input) {
-		this.input = input;
+		StringHandler sh = new StringHandler();
+		this.input = sh.toStandardInput(input);
 	}
 
+	/**
+	 * Convert input from regular mathematical expression to a postfix one.
+	 */
 	public void convert() {
-		// Stack<String> stack = new Stack<String>();
-		StringTokenizer st = new StringTokenizer(input, " ");
+		StringTokenizer tokenizer = new StringTokenizer(input, " ");
 
-		while (st.hasMoreElements()) {
-			String token = st.nextToken();
+		while (tokenizer.hasMoreElements()) {
+			String token = tokenizer.nextToken();
 
 			// Single digit, Check if type is digit or operator.
 			if (token.length() == 1) {
@@ -51,6 +54,12 @@ public class InfixConverter extends TypeCheck {
 		postfixString += token + " ";
 	}
 
+	/**
+	 * Performs comparisons between operators on the stack. Then pushes to or
+	 * pops off the stack according to the results of the comparisons.
+	 * 
+	 * @param token Operator to process
+	 */
 	private void processOperator(String token) {
 		StackToken operator = new StackToken(token);
 
@@ -69,11 +78,16 @@ public class InfixConverter extends TypeCheck {
 		opStack.push(operator);
 	}
 
+	/**
+	 * 
+	 * @param token Parenthesis to process.
+	 */
 	private void processParenthesis(String token) {
 		char temp = token.charAt(0);
 
 		if (temp == '(')
 			opStack.push(new StackToken(token));
+		// token is a right parenthesis.
 		else {
 			while (!opStack.peek().getType().equals("(")) {
 				addToOutputQueue(opStack.pop().getType());

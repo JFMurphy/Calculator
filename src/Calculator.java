@@ -2,7 +2,7 @@ public class Calculator {
 
 	public static void main(String[] args) {
 
-		String str = "3 + 6 * 5 + ( 1 - 5 )";
+		String str = "4+5*56+695-5";
 		InfixConverter ic = new InfixConverter(str);
 		ic.convert();		
 		

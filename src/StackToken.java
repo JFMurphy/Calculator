@@ -1,4 +1,3 @@
-
 public class StackToken extends TypeCheck {
 
 	private String type;
