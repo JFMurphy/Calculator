@@ -2,9 +2,9 @@
 public class Main {
 
 	public static void main(String[] args) {
-		String str = "4+5*56+695-5";
+		String str = "2.35+.221";
 		Calculator calculator = new Calculator();
-		calculator.calculate(str);
+		System.out.println(calculator.calculate(str));
 	}
 
 }

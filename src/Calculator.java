@@ -44,7 +44,7 @@ public class Calculator extends TypeCheck{
 			
 			// Operator
 			else if (isOperator(temp)) {
-				
+				processOperator(token);
 			}
 			// Illegal character
 			else {
