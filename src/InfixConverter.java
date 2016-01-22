@@ -8,16 +8,13 @@ public class InfixConverter extends TypeCheck {
 	private String input;
 	private String postfixString = "";
 
-	public InfixConverter(String input) {
-		StringHandler sh = new StringHandler();
-		this.input = sh.toStandardInput(input);
-	}
-
 	/**
 	 * Convert input from regular mathematical expression to a postfix one.
 	 */
-	public void convert() {
-		StringTokenizer tokenizer = new StringTokenizer(input, " ");
+	public void convert(String input) {
+		StringHandler sh = new StringHandler();
+		this.input = sh.toStandardInput(input);
+		StringTokenizer tokenizer = new StringTokenizer(this.input, " ");
 
 		while (tokenizer.hasMoreElements()) {
 			String token = tokenizer.nextToken();

@@ -1,12 +1,25 @@
+import java.util.StringTokenizer;
+import java.util.Stack;
+
 public class Calculator {
 
-	public static void main(String[] args) {
-
-		String str = "4+5*56+695-5";
-		InfixConverter ic = new InfixConverter(str);
-		ic.convert();		
+	private String postfixString;
+	
+	public void calculate(String input) {
+		InfixConverter ic = new InfixConverter();
+		ic.convert(input);
+		postfixString = ic.getPostfixString();
 		
-		System.out.println(ic.getPostfixString());
-
+		StringTokenizer tokenizer = new StringTokenizer(postfixString, " ");
+		
+		while (tokenizer.hasMoreTokens()) {
+			processToken(tokenizer.nextToken());
+		}
+		
+				
+	}
+	
+	private void processToken(String token) {
+		
 	}
 }
